@@ -26,8 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/loan-category/updateStatus/{loanCategory}', [LoanCategoryController::class, 'updateStatus'])->name('loan-category.update-status');
 
     Route::get('/loans', [LoanController::class, 'index'])->name('loans.index');
-    Route::delete('/loans/{loanCategory}', [LoanController::class, 'destroy'])->name('loans.destroy');
-    Route::put('/loans/updateStatus/{loanCategory}', [LoanController::class, 'updateStatus'])->name('loans.update-status');
+    Route::delete('/loans/{loan}', [LoanController::class, 'destroy'])->name('loans.destroy');
+    Route::put('/loans/updateStatus/{loan}', [LoanController::class, 'updateStatus'])->name('loans.update-status');
 });
 
 require __DIR__.'/auth.php';

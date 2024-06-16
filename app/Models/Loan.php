@@ -48,4 +48,9 @@ class Loan extends Model implements Auditable
     {
         return Carbon::parse($this->created_at)->format('d/m/Y h:i A');
     }
+
+    public function loanCategory()
+    {
+        return $this->belongsTo(LoanCategory::class, 'loan_category_id');
+    }
 }

@@ -16,6 +16,7 @@ export default function Index({
     const [openDialog, setOpenDialog] = useState(false);
     const [deleteId, setDeleteId] = useState(0);
     const [isStatus, setIsStatus] = useState(false);
+    const [status, setStatus] = useState('');
     const { delete: destroy, put } = useForm();
     const [searchQuery, setSearchQuery] = useState(filters.query || "");
     const [pageSize, setPageSize] = useState(filters.size || 10);
@@ -28,6 +29,7 @@ export default function Index({
     const handleDelete = (id) => {
         setDeleteId(id);
         setOpenDialog(true);
+        setIsStatus(false);
     };
     const handleResetFilter = useCallback(() => {
         setSearchQuery("");
@@ -38,15 +40,18 @@ export default function Index({
         fetchData(1);
     };
 
-    const handleStatusChange = (id) => {
-        setIsStatus(true);
+    const handleStatusChange =(id, newStatus) => {
         setDeleteId(id);
         setOpenDialog(true);
+        setIsStatus(true);
+        setStatus(newStatus);
     };
 
     const handleSubmit = () => {
         if (isStatus) {
-            put(route("loans.update-status", deleteId), {
+            console.log('  status ', status)
+            Inertia.put(route("loans.update-status", deleteId), {
+                status,
                 preserveScroll: true,
                 onSuccess: () => {
                     setOpenDialog(false);
@@ -170,14 +175,14 @@ export default function Index({
                                         {item.loan_amount}
                                     </td>
                                     <td className="px-6 py-1 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        {item.loan_amount}
+                                        {item.loan_category.name}
                                     </td>
                                     <td className="px-6 py-1 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                         <label className="inline-flex items-center me-5 cursor-pointer">
                                             <select
                                                 className="form-select"
                                                 value={item.status}
-                                                onChange={handleStatusChange}
+                                                onChange={(e) => handleStatusChange(item.id, e.target.value)}
                                             >
                                                 <option value="new">New</option>
                                                 <option value="interested">
