@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -40,4 +41,11 @@ class Loan extends Model implements Auditable
         'status',
         'mail_sent'
     ];
+
+    protected $appends = ['createdDate'];
+    
+    public function getCreatedDateAttribute()
+    {
+        return Carbon::parse($this->created_at)->format('d/m/Y h:i A');
+    }
 }

@@ -38,6 +38,14 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Loan Category
                                 </NavLink>
+                                <NavLink
+                                    href={route("loans.index")}
+                                    active={route().current(
+                                        "loans.index"
+                                    )}
+                                >
+                                    Loans
+                                </NavLink>
                             </div>
                         </div>
 
@@ -147,6 +155,12 @@ export default function Authenticated({ user, header, children }) {
                             active={route().current("loan-category.index")}
                         >
                             Loan Category
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("loans.index")}
+                            active={route().current("loans.index")}
+                        >
+                            Loans
                         </ResponsiveNavLink>
                     </div>
 

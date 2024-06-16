@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoanCategoryController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/loan-category/store/{loanCategory?}', [LoanCategoryController::class, 'store'])->name('loan-category.store');
     Route::delete('/loan-category/{loanCategory}', [LoanCategoryController::class, 'destroy'])->name('loan-category.destroy');
     Route::put('/loan-category/updateStatus/{loanCategory}', [LoanCategoryController::class, 'updateStatus'])->name('loan-category.update-status');
+
+    Route::get('/loans', [LoanController::class, 'index'])->name('loans.index');
+    Route::delete('/loans/{loanCategory}', [LoanController::class, 'destroy'])->name('loans.destroy');
+    Route::put('/loans/updateStatus/{loanCategory}', [LoanController::class, 'updateStatus'])->name('loans.update-status');
 });
 
 require __DIR__.'/auth.php';
