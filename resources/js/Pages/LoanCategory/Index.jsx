@@ -102,14 +102,14 @@ export default function Index({
     return (
         <AuthenticatedLayout user={auth.user} className="p-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between items-center py-3">
                     <h2 className="text-red-500 font-bold">Loan Category</h2>
                     <Link href={`loan-category/add`}>
                         <PrimaryButton>Add</PrimaryButton>
                     </Link>
                 </div>
-                <div className="flex justify-between items-center py-4">
-                    <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between items-center py-1">
+                    <div className="flex justify-between items-center py-1">
                         <input
                             type="text"
                             value={searchQuery}
@@ -159,10 +159,10 @@ export default function Index({
                         <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                             {category.data.map((item) => (
                                 <tr key={item.id}>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                    <td className="px-6 py-1 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
                                         {item.name}
                                     </td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                    <td className="px-6 py-1 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                         <label className="inline-flex items-center me-5 cursor-pointer">
                                             <input
                                                 type="checkbox"
@@ -181,7 +181,7 @@ export default function Index({
                                         </label>
                                     </td>
 
-                                    <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td className="px-6 py-1 whitespace-nowrap text-end text-sm font-medium">
                                         <Link
                                             href={`loan-category/add/${item.id}`}
                                             className="ml-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400"
