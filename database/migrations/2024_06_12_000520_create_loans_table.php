@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('total_work_experience')->nullable();
             $table->string('property_type')->nullable()->comment('residential, commercial, industrial');
             $table->string('machinery_type')->nullable();
-            $table->decimal('loan_amount');
+            $table->decimal('loan_amount', 12,2);
             $table->string('name');
             $table->string('email_id')->nullable();
             $table->string('contact_no')->nullable();
