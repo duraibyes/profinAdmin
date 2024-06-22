@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('year_of_establishment')->nullable();
             $table->string('annual_term_over')->nullable()->comment('less than 1cr,1 to 3cr, 3 cr and above');
             $table->string('profession_name')->nullable();
+            $table->string('profession_qualification')->nullable();
             $table->string('no_of_years_profession')->nullable()->comment('less than 5 year, 5 years and above');
             $table->string('employer_name')->nullable();
             $table->string('monthly_salary_range')->nullable()->comment('less than 30k,30k to 50k, 50k and above');

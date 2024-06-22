@@ -27,15 +27,17 @@ class LoanController extends Controller
         info('aith', [auth()->id()]);
         $loanCategoryId = $request->id;
         $profession_name = $request->profession ? ($request->profession === 'doctor' ? 'Doctor' : $request->profession_name ) : null;
+        $profession_qualification = $request->profession_qualification ? ($request->profession_qualification === 'others' ? $request->profession_name : $request->profession_qualification ) : null;
 
         $ins = [
             'user_id' => auth()->id(),
             'loan_category_id' => $loanCategoryId,
-            'company_type' => '',
+            'company_type' => $request->company_type ?? null,
             'company_name' => $request->company ?? null,
             'year_of_establishment' => $request->yearEstablish ?? null,
             'annual_term_over' => $request->annualTerm ?? null,
             'profession_name' => $profession_name,
+            'profession_qualification' => $profession_qualification ?? null,
             'no_of_years_profession' => $request->no_of_years_profession ?? null,
             'employer_name' => $request->employer_name ?? null,
             'monthly_salary_range' => $request->monthly_salary_range ?? null,

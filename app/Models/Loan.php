@@ -21,6 +21,7 @@ class Loan extends Model implements Auditable
         'year_of_establishment',
         'annual_term_over',
         'profession_name',
+        'profession_qualification',
         'no_of_years_profession',
         'employer_name',
         'monthly_salary_range',
