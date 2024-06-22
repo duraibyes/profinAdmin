@@ -45,7 +45,7 @@ class LoanController extends Controller
             'employment_type' => $request->employer_name ? 'salaried' : ($request->employment_type ?? null),
             'monthly_salary' => $request->monthly_salary ?? 0,
             'total_work_experience' => $request->total_work_experience ?? null,
-            'property_type' => '',
+            'property_type' => $request->property_type ? ($request->property_type === 'others' ? ($request->otherProperty ?? null): $request->property_type) : null,
             'machinery_type' => '',
             'loan_amount' => $request->loanAmount,
             'name' => $request->name,
