@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('whatsapp_no')->nullable();
             $table->string('alternative_no')->nullable();
             $table->string('status')->default('new')->comment('new,interested,cancelled,completed');
+            $table->string('secured')->nullable()->comment('yes, no');
             $table->timestamp('mail_sent')->nullable();
             $table->softDeletes();
             $table->timestamps();

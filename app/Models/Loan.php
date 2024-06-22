@@ -40,6 +40,7 @@ class Loan extends Model implements Auditable
         'whatsapp_no',
         'alternative_no',
         'status',
+        'secured',
         'mail_sent'
     ];
 
